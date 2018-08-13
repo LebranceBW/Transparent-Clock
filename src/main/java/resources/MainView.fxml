@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.web.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane pickOnBounds="false" style="-fx-background:transparent;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainViewController">
+   <children>
+      <GridPane alignment="CENTER" hgap="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="NEVER" />
+          <ColumnConstraints hgrow="NEVER" />
+            <ColumnConstraints hgrow="NEVER" />
+            <ColumnConstraints hgrow="NEVER" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="ALWAYS" />
+            <RowConstraints vgrow="ALWAYS" />
+        </rowConstraints>
+         <children>
+            <Label fx:id="timeLabel" alignment="CENTER" minWidth="240.0" text="00:00:00" textFill="WHITE" textOverrun="CLIP" GridPane.rowSpan="3">
+               <font>
+                  <Font name="Microsoft YaHei Light" size="60.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="menuBtn" fitHeight="24.0" fitWidth="24.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
+               <image>
+                  <Image url="@drag.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin>
+            </ImageView>
+            <ImageView fx:id="exitBtn" fitHeight="24.0" fitWidth="24.0" opacity="0.6" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <image>
+                  <Image url="@exit.png" />
+               </image>
+               <GridPane.margin>
+                  <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+               </GridPane.margin>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </opaqueInsets>
+      </GridPane>
+   </children>
+   <opaqueInsets>
+      <Insets right="3.0" />
+   </opaqueInsets>
+</AnchorPane>

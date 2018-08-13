@@ -1,0 +1,7 @@
+*.jar
+*.exe
+bin/
+build/
+.project
+./class
+.settings/
