@@ -1,5 +1,8 @@
 package controller;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 
 public class MainViewController implements Initializable
@@ -47,8 +49,10 @@ public class MainViewController implements Initializable
 		// 响应拖拽事件
 		menuBtn.setOnMouseDragged(e->
 		{
-			stage.setX(e.getScreenX() - xBias);
-			stage.setY(e.getScreenY() - yBias);
+			double newX = e.getScreenX() - xBias;
+			double newY = e.getScreenY() - yBias;
+			stage.setX(newX);
+			stage.setY(newY);
 		}
 		);
 		menuBtn.setOnMousePressed(e->
@@ -60,6 +64,20 @@ public class MainViewController implements Initializable
 		exitBtn.setOnMouseClicked(e->
 		{
 			timer.cancel();
+			File conf = new File("config.ini");
+			try 
+			{
+				System.out.println(conf.getAbsolutePath());
+				if(!conf.exists())
+					conf.createNewFile();
+				FileWriter fw = new FileWriter(conf, false);
+				fw.write(String.format("(%.2f, %.2f)", stage.getX(), stage.getY()));
+
+				fw.close();
+			} catch (IOException e1)
+			{
+				e1.printStackTrace();
+			}
 			Platform.exit();
 		}
 		);
